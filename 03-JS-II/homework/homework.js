@@ -34,7 +34,7 @@ function conection(status) {
   } else if (status === 2) {
     return "Away";
   } else {
-    return "offline";
+    return "Offline";
   }
 }
 
@@ -45,12 +45,12 @@ function saludo(idioma) {
   // Si "idioma" es "ingles", devuelve "Hello!"
   // Si "idioma" no es ninguno de los anteiores o es `undefined` devuelve "Hola!"
   // Tu código:
-  if (idiona === "aleman") {
+  if (idioma === "aleman") {
     return "Guten Tag!";
   } else if (idioma === "mandarin") {
     return "Ni Hao!";
   } else if (idioma === "ingles") {
-    return "Hello";
+    return "Hello!";
   } else {
     return "Hola!";
   }
@@ -69,13 +69,13 @@ function colors(color) {
     case "blue":
       answer = "This is blue";
       break;
-    case "blue":
+    case "red":
       answer = "This is red";
       break;
-    case "blue":
+    case "green":
       answer = "This is green";
       break;
-    case "blue":
+    case "orange":
       answer = "This is orange";
       break;
     default:
@@ -127,16 +127,17 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
-  if ((numero % 3 === 0) && (numero % 5 === 0)) {
+  if (numero % 15 === 0) {
     return "fizzbuzz";
-  } else if (numero % 3 === 0) {
-    return "fizz";
-  } else if (numero % 5 === 0) {
-    return "buzz";
-  } else {
-    return numero;
   }
-}
+  if (numero % 3 === 0) {
+    return "fizz";
+  }
+  if (numero % 5 === 0) {
+    return "buzz";
+  }
+  return numero;
+};
 
 function operadoresLogicos(num1, num2, num3) {
   //La función recibe tres números distintos. 
@@ -166,23 +167,16 @@ function esPrimo(numero) {
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
   var cont = 0;
-  if (numero === 0 || numero === 1) {
+  if (numero < 2) {
     return false;
   }
-  for (let i = 1; i <= numero; i++) {
+  for (let i = 2; i < numero; i++) {
     if (numero % i === 0) {
-      cont++
+      return false;
     }
-    if (cont > 2) {
-      break;
-    }
-  }
-  if (cont >= 2) {
-    return falso;
-  } else {
-    return true;
-  }
-}
+  };
+  return true;
+};
 
 function esVerdadero(valor) {
   //Escribe una función que reciba un valor booleano y retorne “Soy verdadero” 
@@ -199,12 +193,11 @@ function tablaDelSeis() {
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
-  var tablaDelSeis = [10];
-  for (let i = 1; i <= 10; i++) {
-    tablaDelSeis[i] = 6*i;
+  var tabla = [];
+  for (let i = 0; i < 11; i++) {
+    tabla.push(6 * i);
   }
-  return tablaDelSeis;
-
+  return tabla;
 }
 
 function tieneTresDigitos(numero) {
@@ -212,10 +205,9 @@ function tieneTresDigitos(numero) {
   //Escribe tu código aquí
   if (numero > 99 && numero < 1000) {
     return true;
-  } else {
-    return false;
   }
-}
+  return false;
+};
 
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
@@ -225,7 +217,7 @@ function doWhile(numero) {
   do {
     numero = numero + 5;
     count++;
-  } while(count=8);
+  } while (count < 8);
   return numero;
 }
 
